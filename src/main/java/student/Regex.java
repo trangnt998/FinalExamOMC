@@ -6,7 +6,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 
-public class Regex {
+public class Regex implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     //1. String regexEmail = "\\b[A-Za-z]+\\w*@(gmail.com|outlook.com)\\b";
     public String getRegex(){
         return "\\b[A-Za-z]+\\w*@(gmail.com|outlook.com)\\b";
@@ -78,7 +80,7 @@ public class Regex {
     //4. đọc file outlook.bin
     public void readInfoOutlook(ArrayList<Student> students){
         try {
-            FileInputStream fis = new FileInputStream("outlook.bin");
+            FileInputStream fis = new FileInputStream("src/test/outlook.bin");
             DataInputStream dis = new DataInputStream(fis);
             while (dis.available() > 0) {
 
@@ -127,7 +129,7 @@ public class Regex {
         printListStudent1(studentOutlook);
 
         r.writeInfoOutlook(studentOutlook,"src/test/outlook.bin");
-        //r.readInfoOutlook(studentOutlook);
+        r.readInfoOutlook(studentOutlook);
 
 
 
