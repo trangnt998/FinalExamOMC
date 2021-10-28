@@ -10,20 +10,21 @@ public class Regex implements Serializable {
     private static final long serialVersionUID = 1L;
 
     //1. String regexEmail = "\\b[A-Za-z]+\\w*@(gmail.com|outlook.com)\\b";
-    public String getRegex(){
+    public String getRegex() {
         return "\\b[A-Za-z]+\\w*@(gmail.com|outlook.com)\\b";
     }
+
     //2. liệt kê sinh viên có email là gmail
-    public ArrayList<Student> listGmail(ArrayList<Student> students){
+    public ArrayList<Student> listGmail(ArrayList<Student> students) {
         String regexEmail = "\\b[A-Za-z]+\\w*@(gmail.com)\\b";
         Pattern patternEmail;
         ArrayList<Student> studentgmail = new ArrayList<Student>();
-        for (int i = 0; i < students.size(); i++){
+        for (int i = 0; i < students.size(); i++) {
             String text = students.get(i).getEmail();
             patternEmail = Pattern.compile(regexEmail);
             Matcher matcherEmail = patternEmail.matcher(text);
-            if (matcherEmail.find()){
-                 studentgmail.add(students.get(i));
+            if (matcherEmail.find()) {
+                studentgmail.add(students.get(i));
 //                System.out.println(text.substring(matcherEmail.start(), matcherEmail.end()));
             }
         }
@@ -32,17 +33,16 @@ public class Regex implements Serializable {
     }
 
 
-
     //3. liệt kê sinh viên có email là outlook
-    public ArrayList<Student> listOutlook(ArrayList<Student> students){
+    public ArrayList<Student> listOutlook(ArrayList<Student> students) {
         String regexEmail = "\\b[A-Za-z]+\\w*@(outlook.com)\\b";
         Pattern patternEmail;
         ArrayList<Student> studentOutlook = new ArrayList<Student>();
-        for (int i = 0; i < students.size(); i++){
+        for (int i = 0; i < students.size(); i++) {
             String text = students.get(i).getEmail();
             patternEmail = Pattern.compile(regexEmail);
             Matcher matcherEmail = patternEmail.matcher(text);
-            if (matcherEmail.find()){
+            if (matcherEmail.find()) {
                 studentOutlook.add(students.get(i));
 //                System.out.println(text.substring(matcherEmail.start(), matcherEmail.end()));
             }
@@ -52,10 +52,8 @@ public class Regex implements Serializable {
     }
 
 
-
-
     //chuyển thông tin sinh viên có email là outlook vào file outlook.bin
-    public void writeInfoOutlook(ArrayList<Student> students, String path){
+    public void writeInfoOutlook(ArrayList<Student> students, String path) {
         try {
             FileOutputStream fos = new FileOutputStream(path);
             DataOutputStream dos = new DataOutputStream(fos);
@@ -78,7 +76,7 @@ public class Regex implements Serializable {
 
 
     //4. đọc file outlook.bin
-    public void readInfoOutlook(ArrayList<Student> students){
+    public void readInfoOutlook(ArrayList<Student> students) {
         try {
             FileInputStream fis = new FileInputStream("src/test/outlook.bin");
             DataInputStream dis = new DataInputStream(fis);
@@ -93,7 +91,7 @@ public class Regex implements Serializable {
                 float LT = dis.readFloat();
                 float avg = dis.readFloat();
 
-                Student student = new Student(ID, Name, Email, bonus, report, app,LT,avg);
+                Student student = new Student(ID, Name, Email, bonus, report, app, LT, avg);
                 System.out.println(student);
             }
             dis.close();
@@ -103,7 +101,7 @@ public class Regex implements Serializable {
     }
 
     public static void printListStudent1(ArrayList<Student> students) {
-        for(Student s: students) {
+        for (Student s : students) {
             System.out.println(s.toString());
             System.out.println("\n");
 
@@ -128,9 +126,8 @@ public class Regex implements Serializable {
         ArrayList<Student> studentOutlook = r.listOutlook(Students);
         printListStudent1(studentOutlook);
 
-        r.writeInfoOutlook(studentOutlook,"src/test/outlook.bin");
+        r.writeInfoOutlook(studentOutlook, "src/test/outlook.bin");
         r.readInfoOutlook(studentOutlook);
-
 
 
     }

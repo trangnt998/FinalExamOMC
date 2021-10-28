@@ -12,9 +12,9 @@ public class App {
         ArrayList<Student> Students;
         // 1.
         Students = reader.readData("src/test/data.csv");
-//        reader.printListStudent(Students);
+        //reader.printListStudent(Students);
         // 2.
-        //reader.ListTop10byLTPoints(Students);
+        reader.ListTop10byLTPoints(Students);
         //3.
         reader.CaculatorAvg(Students);
         //4.

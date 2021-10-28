@@ -9,45 +9,59 @@ public class Student {
     private float app;
     private float LT;
     private float avg;
+
     public String getID() {
         return ID;
     }
+
     public void setID(String iD) {
         ID = iD;
     }
+
     public String getName() {
         return Name;
     }
+
     public void setName(String name) {
         Name = name;
     }
+
     public String getEmail() {
         return Email;
     }
+
     public void setEmail(String email) {
         Email = email;
     }
+
     public float getBonus() {
         return bonus;
     }
+
     public void setBonus(float bonus) {
         this.bonus = bonus;
     }
+
     public float getReport() {
         return report;
     }
+
     public void setReport(float report) {
         this.report = report;
     }
+
     public float getApp() {
         return app;
     }
+
     public void setApp(float app) {
         this.app = app;
     }
+
     public float getLT() {
         return LT;
     }
+
     public void setLT(float lT) {
         LT = lT;
     }
@@ -81,16 +95,13 @@ public class Student {
         this.app = app;
         LT = lT;
     }
+
     @Override
 
     public String toString() {
         return "Student [ID=" + ID + ", Name=" + Name + ", Email=" + Email + ", bonus=" + bonus + ", report=" + report
                 + ", app=" + app + ", LT=" + LT + "]";
     }
-
-
-
-
 
 
 }
