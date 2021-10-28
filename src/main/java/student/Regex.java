@@ -108,7 +108,7 @@ public class Regex implements Serializable {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException, UnsupportedEncodingException {
         Regex r = new Regex();
         ReadData reader = new ReadData();
         ArrayList<Student> Students;

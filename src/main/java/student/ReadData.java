@@ -130,17 +130,17 @@ public class ReadData {
 
 
     //1 . Đọc file csv
-    public ArrayList<Student> readData(String path) {
-        FileReader fileReader = null;
+    public ArrayList<Student> readData(String path) throws FileNotFoundException, UnsupportedEncodingException {
+        FileInputStream fileReader = null;
         ArrayList<Student> Students = new ArrayList<Student>();
 
         try {
-            fileReader = new FileReader(path);
+            fileReader = new FileInputStream(path);
         } catch (FileNotFoundException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        BufferedReader reader = new BufferedReader(fileReader);
+        BufferedReader reader = new BufferedReader(new InputStreamReader(fileReader, "UTF-8"));
         Students = new ArrayList<Student>();
         String line;
         try {
